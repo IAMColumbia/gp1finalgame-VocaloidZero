@@ -47,6 +47,16 @@ public class PlatformManager : MonoBehaviour
             distanceBetween = Random.Range(distanceMin,distanceMax);
             platformSelector = Random.Range(0, objPlatformPooler.Length);
             heightChange = transform.position.x + Random.Range(maxHeightChange, -maxHeightChange);
+
+            if(heightChange > maxHeight)
+            {
+                heightChange = maxHeight;
+            }
+            else if(heightChange < minHeight)
+            {
+                heightChange = minHeight;
+            }
+
             transform.position = new Vector3(heightChange, transform.position.y + (platformWidths[platformSelector]/2) + distanceBetween, transform.position.z);
             // Instantiate(thePlatform, transform.position, transform.rotation);
 
