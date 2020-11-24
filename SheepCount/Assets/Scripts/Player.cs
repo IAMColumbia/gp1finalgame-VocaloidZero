@@ -6,17 +6,20 @@ public class Player : MonoBehaviour
 {
     public Vector2 direction;
     public float speed;
-    public float jumpForce;
+    //public float jumpForce;
+    //public int extraJumpValue;
+    ////private int extraJumps;
     private bool facingRight = false;
+    
 
     //Check if on ground
-    private bool onGround;
+    public bool onGround;
     public Transform groundCheck;
     public float groundRadius;
     public LayerMask whatIsGround;
 
-    PlayerController playerController;
-    private Rigidbody2D rb2D;
+    ControllerRestricted playerController;
+    public Rigidbody2D rb2D;
 
     void Awake()
     {
@@ -24,10 +27,10 @@ public class Player : MonoBehaviour
     }
     void Start()
     {
-        playerController = GetComponent<PlayerController>();
+        playerController = GetComponent<ControllerRestricted>();
         if (playerController == null)
         {
-            playerController = this.gameObject.AddComponent<PlayerController>();
+            playerController = this.gameObject.AddComponent<ControllerRestricted>();
         }
     }
     private void FixedUpdate()
@@ -35,6 +38,7 @@ public class Player : MonoBehaviour
         //Update Player position
         UpdateInput();
         rb2D.MovePosition(rb2D.position + direction * speed * Time.fixedDeltaTime);
+        //direction.Normalize();
 
         //ground check
         onGround = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
@@ -48,7 +52,7 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
-        Jump();
+
     }
     protected virtual void UpdateInput()
     {
@@ -56,6 +60,7 @@ public class Player : MonoBehaviour
         {
             this.direction = playerController.direction;
         }
+
         else
         {
             this.direction = Vector3.zero;
@@ -70,8 +75,26 @@ public class Player : MonoBehaviour
         transform.localScale = Scaler;
     }
 
-    void Jump()
+    public void Jump()
     {
+        // this.direction.y = playerController.direction.y;
+       // rb2D.MovePosition(rb2D.position + direction * speed * Time.fixedDeltaTime);
+
+        //if (onGround == true)
+        //{
+        //    extraJumps = extraJumpValue;
+        //}
+
+        //if (Input.GetKey("up") && extraJumps > 0)
+        //{
+        //    this.direction.y = playerController.direction.y * jumpForce;
+        //    extraJumps--;
+        //}
+        //else if (Input.GetKey("up") && extraJumps == 0 && onGround == true)
+        //{
+        //    this.direction.y = playerController.direction.y * jumpForce;
+        //}
+      
 
     }
 }
