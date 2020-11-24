@@ -6,15 +6,22 @@ public class ControllerRestricted : PlayerController
 {
     private Player player;
 
+    //Jump factors
     private bool hasJumped;
     public float jumpForce;
     public int extraJumpValue;
     public int extraJumps;
 
+    //Check if on ground for jumping
+    public bool onGround;
+    public Transform groundCheck;
+    public float groundRadius;
+    public LayerMask whatIsGround;
+
     void Start()
     {
         extraJumpValue = 2;
-        player = GetComponent<Player>();
+
     }
 
     private void Update()
@@ -25,13 +32,17 @@ public class ControllerRestricted : PlayerController
     private void FixedUpdate()
     {
         UpdateMovement();
+
+        //ground check
+        onGround = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
     }
 
     protected override void UpdateMovement()
     {
         base.UpdateMovement();
 
-        if (player.onGround == true)
+
+        if (onGround == true)
         {
             extraJumps = extraJumpValue;
         }
@@ -40,11 +51,11 @@ public class ControllerRestricted : PlayerController
             this.direction = direction * jumpForce;
             extraJumps--;
         }
-        if (Input.GetKey("up") && extraJumps == 0 && player.onGround == true)
+        if (Input.GetKey("up") && extraJumps == 0 && onGround == true)
         {
-           this.direction = direction * jumpForce;
+            this.direction = direction * jumpForce;
         }
-        if (Input.GetKey("up") && extraJumps == 0 && player.onGround == false)
+        if (Input.GetKey("up") && extraJumps == 0 && onGround == false)
         {
             this.direction.y = 0;
         }

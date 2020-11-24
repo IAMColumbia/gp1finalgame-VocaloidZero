@@ -1,6 +1,7 @@
 Release Notes version 1 POC
 
--Random spawn platforms
--scroll up
--bottom screen death
--jump
+-Wimpy spawn platforms
+-deactiveate platforms offscreen 
+-object pooling for instatiated platforms
+-Camera following
+-Jump and move 

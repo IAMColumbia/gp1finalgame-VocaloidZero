@@ -13,12 +13,12 @@ public class Player : MonoBehaviour
     
 
     //Check if on ground
-    public bool onGround;
-    public Transform groundCheck;
-    public float groundRadius;
-    public LayerMask whatIsGround;
+    //public bool onGround;
+    //public Transform groundCheck;
+    //public float groundRadius;
+    //public LayerMask whatIsGround;
 
-    ControllerRestricted playerController;
+    TestController playerController;
     public Rigidbody2D rb2D;
 
     void Awake()
@@ -27,24 +27,25 @@ public class Player : MonoBehaviour
     }
     void Start()
     {
-        playerController = GetComponent<ControllerRestricted>();
+        playerController = GetComponent<TestController>();
         if (playerController == null)
         {
-            playerController = this.gameObject.AddComponent<ControllerRestricted>();
+            playerController = this.gameObject.AddComponent<TestController>();
         }
     }
     private void FixedUpdate()
     {
         //Update Player position
-        UpdateInput();
-        rb2D.MovePosition(rb2D.position + direction * speed * Time.fixedDeltaTime);
+        //UpdateInput();
+        //rb2D.MovePosition(rb2D.position + direction * speed * Time.fixedDeltaTime);
+        rb2D.velocity = new Vector2(playerController.moveInput * speed, rb2D.velocity.y);
         //direction.Normalize();
 
-        //ground check
-        onGround = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
+        ////ground check
+        //onGround = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
 
         //Flip player
-        if (facingRight == false && playerController.keyDirection.x > 0 || facingRight == true && playerController.keyDirection.x < 0)
+        if (facingRight == false && playerController.moveInput > 0 || facingRight == true && playerController.moveInput < 0)
         {
             Flip();
         }
@@ -54,18 +55,18 @@ public class Player : MonoBehaviour
     {
 
     }
-    protected virtual void UpdateInput()
-    {
-        if (playerController.IsKeyDown)
-        {
-            this.direction = playerController.direction;
-        }
+    //protected virtual void UpdateInput()
+    //{
+    //    if (playerController.IsKeyDown)
+    //    {
+    //        this.direction = playerController.direction;
+    //    }
 
-        else
-        {
-            this.direction = Vector3.zero;
-        }
-    }
+    //    else
+    //    {
+    //        this.direction = Vector3.zero;
+    //    }
+    //}
 
     void Flip()
     {
@@ -75,26 +76,4 @@ public class Player : MonoBehaviour
         transform.localScale = Scaler;
     }
 
-    public void Jump()
-    {
-        // this.direction.y = playerController.direction.y;
-       // rb2D.MovePosition(rb2D.position + direction * speed * Time.fixedDeltaTime);
-
-        //if (onGround == true)
-        //{
-        //    extraJumps = extraJumpValue;
-        //}
-
-        //if (Input.GetKey("up") && extraJumps > 0)
-        //{
-        //    this.direction.y = playerController.direction.y * jumpForce;
-        //    extraJumps--;
-        //}
-        //else if (Input.GetKey("up") && extraJumps == 0 && onGround == true)
-        //{
-        //    this.direction.y = playerController.direction.y * jumpForce;
-        //}
-      
-
-    }
 }
