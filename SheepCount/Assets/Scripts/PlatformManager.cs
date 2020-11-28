@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PlatformManager : MonoBehaviour
 {
-    public GameObject thePlatform;
-  //  public GameObject[] thePlatforms;
+   // public GameObject thePlatform;
+  ////  public GameObject[] thePlatforms;
     public Transform generationPoint;
     public PlatformPooler[] objPlatformPooler;
-   // public GameObject[] platforms;
+  // // public GameObject[] platforms;
 
     public float distanceBetween;
-    private float platformWidth;
+    //private float platformWidth;
     public float distanceMin;
     public float distanceMax;
     private int platformSelector;
@@ -26,38 +26,52 @@ public class PlatformManager : MonoBehaviour
 
     private void Start()
     {
-        //platformWidth = thePlatform.GetComponent<BoxCollider2D>().size.y;
+        // platformWidth = thePlatform.GetComponent<BoxCollider2D>().size.y;
+
+
 
         //Get sizes of the prefabs in the list
         platformWidths = new float[objPlatformPooler.Length];
 
-        for(int i = 0; i < objPlatformPooler.Length; i++)
+        for (int i = 0; i < objPlatformPooler.Length; i++)
         {
-            platformWidths[1] = objPlatformPooler[i].platformPool.GetComponent<BoxCollider2D>().size.y;
+            platformWidths[i] = objPlatformPooler[i].platformPool.GetComponent<BoxCollider2D>().size.y;
         }
 
-        minHeight = transform.position.y;
-        maxHeight = maxHeightPoint.position.y;
+        minHeight = transform.position.x;
+        maxHeight = maxHeightPoint.position.x;
     }
 
     private void Update()
     {
-        if(transform.position.y < generationPoint.position.y)
+
+        //if(transform.position.y < generationPoint.position.y)
+        //{
+        //    transform.position = new Vector3(transform.position.x,transform.position.y + platformWidth + distanceBetween, transform.position.z);
+
+        //    Instantiate(thePlatform,transform.position, transform.rotation);
+        //}
+
+
+
+
+
+        if (transform.position.y < generationPoint.position.y)
         {
-            distanceBetween = Random.Range(distanceMin,distanceMax);
+            distanceBetween = Random.Range(distanceMin, distanceMax);
             platformSelector = Random.Range(0, objPlatformPooler.Length);
             heightChange = transform.position.x + Random.Range(maxHeightChange, -maxHeightChange);
 
-            if(heightChange > maxHeight)
+            if (heightChange > maxHeight)
             {
                 heightChange = maxHeight;
             }
-            else if(heightChange < minHeight)
+            else if (heightChange < minHeight)
             {
                 heightChange = minHeight;
             }
 
-            transform.position = new Vector3(heightChange, transform.position.y + (platformWidths[platformSelector]/2) + distanceBetween, transform.position.z);
+            transform.position = new Vector3(heightChange, transform.position.y + (platformWidths[platformSelector] / 2) + distanceBetween, transform.position.z);
             // Instantiate(thePlatform, transform.position, transform.rotation);
 
             //randomly select bettwen prefab list

@@ -5,3 +5,12 @@ Release Notes version 1 POC
 -object pooling for instatiated platforms
 -Camera following
 -Jump and move 
+
+-Platforms have some randomness but POC only has it to where 
+they spawn vertically only. To at least show that they can activate and deactivate, platforms have been manually placed.
+
+-TestController could probably use further seperation of concern for player movement and jumping restrictions. 
+
+-Screen boundries have yet to be set.
+
+-Camera follows player but will adjust how it does so in future builds. It serves the purpose of showing deactivation, but wouldn't be able to have the player die if they feel below the screen.
