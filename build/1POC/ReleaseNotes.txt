@@ -1,16 +1,19 @@
 Release Notes version 1 POC
 
--Wimpy spawn platforms
--deactiveate platforms offscreen 
--object pooling for instatiated platforms
--Camera following
--Jump and move 
+-Demos the main jump on randomly generated platforms mechanic.
 
--Platforms have some randomness but POC only has it to where 
-they spawn vertically only. To at least show that they can activate and deactivate, platforms have been manually placed.
+-Spawn platforms with some randomness.
+-Deactiveate platforms offscreen.
+-Object pooling for instatiated platforms.
+-Camera following.
+-Jump and move.
+-Score track not implimented.
+-Sheep collectables not implimented.
+
+-Object pooling allows platforms to be reusable. Also allows generation and keeping track of of different sized platforms.
 
 -TestController could probably use further seperation of concern for player movement and jumping restrictions. 
 
--Screen boundries have yet to be set.
+-Character stays on screen in the X axis. Y axis bounds have been left open so that 1) The player can progress up and 2) Fall out of screen when knocked off a platform.
 
--Camera follows player but will adjust how it does so in future builds. It serves the purpose of showing deactivation, but wouldn't be able to have the player die if they feel below the screen.
+-Camera follows player but will adjust how it does so in vertical slice. This PoC camera build is to show platforms benethe the player deactivate once they pass a certain point. There is no End state yet, so the player will be stranded until game is reset.

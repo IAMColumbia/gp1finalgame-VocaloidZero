@@ -7,14 +7,14 @@ public class TestController : MonoBehaviour
     //TODO SoC for playercontroller and then restricted controller for jump addition
 
     //jump conditions
+    [SerializeField] Rigidbody2D rb;
     float jumpCoolDown;
     public float moveInput;
     public float jumpPower;
     public int extraJumps;
     public float speed;
-    [SerializeField] Rigidbody2D rb;
-
     public int jumpCount;
+
     //Ground check for jump
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform groundCheck;

@@ -4,14 +4,14 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-
     public static ScoreManager Instance { get; private set; }
-    public static int Score;
-
 
     public Text ScoreText;
 
-    Vector2 scoreLoc, livesLoc, levelLoc;
+    public static int Score;
+    //public bool timerActive;
+
+
 
     private static void SetupNewGame()
     {
@@ -48,33 +48,6 @@ public class ScoreManager : MonoBehaviour
 
     }
 
-    //public void ClockStart()
-    //{
-
-    //    if (this.timerActive == true)
-    //    {
-    //        Time.timeScale = 1f;
-    //        currentTime -= 1 * Time.deltaTime;
-
-    //    }
-    //    if (this.timerActive == false)
-    //    {
-
-    //        Time.timeScale = 0f;
-    //    }
-    //}
-
-
-    private void Lose()
-    {
-       
-    }
-
-    public void Win()
-    {
-       
-
-    }
 
 
 }
