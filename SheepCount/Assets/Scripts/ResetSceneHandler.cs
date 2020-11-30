@@ -5,19 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class ResetSceneHandler : MonoBehaviour
 {
-    [SerializeField] private GameObject restartGame = null;
-    private ScoreManager sm;
-    //public bool timerActive;
+    private Scene restartGame;
+
     void Start()
     {
-        sm = GetComponent<ScoreManager>();
-        restartGame.SetActive(false);
+        restartGame = SceneManager.GetActiveScene();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        //ResetScene();
     }
 
     public void ResetScene()
@@ -26,11 +24,22 @@ public class ResetSceneHandler : MonoBehaviour
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
-        //sm.timerActive = true;
+
     }
 
-    public void EnableButton()
+    //Reset the scene for now with block touch
+    void OnTriggerEnter2D(Collider2D coll)
     {
-        restartGame.SetActive(true);
+
+        switch (coll.gameObject.tag)
+        {
+            case "Player":
+                this.ResetScene();
+                Debug.Log("Reset Scene");
+                break;
+
+        }
+
     }
+
 }

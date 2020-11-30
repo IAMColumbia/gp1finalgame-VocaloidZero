@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ControllerRestricted : PlayerController
 {
-    private Player player;
 
     //Jump factors
     private bool hasJumped;
@@ -31,31 +30,31 @@ public class ControllerRestricted : PlayerController
 
     private void FixedUpdate()
     {
-        UpdateMovement();
+        UpdateKeyboardInput();
 
         //ground check
         onGround = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
     }
 
-    protected override void UpdateMovement()
+    protected override void UpdateKeyboardInput()
     {
-        base.UpdateMovement();
+        base.UpdateKeyboardInput();
 
 
         if (onGround == true)
         {
             extraJumps = extraJumpValue;
         }
-        if (Input.GetKey("up") && extraJumps > 0)
+        if (Input.GetKeyDown("up") && extraJumps > 0)
         {
             this.direction = direction * jumpForce;
             extraJumps--;
         }
-        if (Input.GetKey("up") && extraJumps == 0 && onGround == true)
+        if (Input.GetKeyDown("up") && extraJumps == 0 && onGround == true)
         {
             this.direction = direction * jumpForce;
         }
-        if (Input.GetKey("up") && extraJumps == 0 && onGround == false)
+        if (Input.GetKeyDown("up") && extraJumps == 0 && onGround == false)
         {
             this.direction.y = 0;
         }

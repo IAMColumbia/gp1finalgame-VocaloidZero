@@ -148,6 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0}
   speed: 5
+  MainCamera: {fileID: 0}
   rb2D: {fileID: 0}
 --- !u!114 &7593915667303839263
 MonoBehaviour:
@@ -163,7 +164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0}
   keyDirection: {x: 0, y: 0}
-  jumpForce: 5
+  jumpForce: 14
   extraJumpValue: 0
   extraJumps: 2
   onGround: 0
@@ -184,11 +185,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fca714fbde02c44b811f62e2701f4ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 7593915667303839262}
   moveInput: 0
-  jumpPower: 11
+  jumpPower: 14
   extraJumps: 0
   speed: 0
-  rb: {fileID: 7593915667303839262}
   jumpCount: 0
   groundLayer:
     serializedVersion: 2

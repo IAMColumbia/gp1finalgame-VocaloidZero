@@ -12,8 +12,10 @@ Release Notes version 1 POC
 
 -Object pooling allows platforms to be reusable. Also allows generation and keeping track of of different sized platforms.
 
--TestController could probably use further seperation of concern for player movement and jumping restrictions. 
+-TestController controls movement and jump. Spreading movement directions over 4 if() statements and an additional script was making the jump snap up and jarring. 
 
 -Character stays on screen in the X axis. Y axis bounds have been left open so that 1) The player can progress up and 2) Fall out of screen when knocked off a platform.
 
 -Camera follows player but will adjust how it does so in vertical slice. This PoC camera build is to show platforms benethe the player deactivate once they pass a certain point. There is no End state yet, so the player will be stranded until game is reset.
+
+-No reset on falling off yet, but block to the left hand of the screen will rest the game. 

@@ -30,7 +30,7 @@ public class TestController : MonoBehaviour
     {
         moveInput = Input.GetAxis("Horizontal");
 
-        if(Input.GetKey("up"))
+        if(Input.GetKeyDown("up"))
         {
             Jump();
         }
@@ -40,7 +40,7 @@ public class TestController : MonoBehaviour
 
     private void FixedUpdate()
     {
-      // rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+
     }
 
     void Jump()

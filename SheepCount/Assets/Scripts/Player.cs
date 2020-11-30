@@ -4,26 +4,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-
-    private ResetSceneHandler gameOver;
-    public Camera MainCamera; //TODO: Change how the camera follows the player. 
-
     public Vector2 direction;
     public float speed;
-    //public float jumpForce;
-    //public int extraJumpValue;
-    ////private int extraJumps;
     private bool facingRight = false;
 
+    public Camera MainCamera; //TODO: Change how the camera follows 
     private Vector2 screenBounds;
     private float objectWidth;
-
-
-    //Check if on ground
-    //public bool onGround;
-    //public Transform groundCheck;
-    //public float groundRadius;
-    //public LayerMask whatIsGround;
 
     TestController playerController;
     public Rigidbody2D rb2D;
@@ -34,7 +21,6 @@ public class Player : MonoBehaviour
     }
     void Start()
     {
-        gameOver = GetComponent<ResetSceneHandler>();
         playerController = GetComponent<TestController>();
         if (playerController == null)
         {
@@ -47,8 +33,7 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         //Update Player position
-        //UpdateInput();
-        //rb2D.MovePosition(rb2D.position + direction * speed * Time.fixedDeltaTime);
+
         rb2D.velocity = new Vector2(playerController.moveInput * speed, rb2D.velocity.y);
         //direction.Normalize();
 
@@ -60,7 +45,10 @@ public class Player : MonoBehaviour
         {
             Flip();
         }
-
+        //if (facingRight == false && playerController.keyDirection.x > 0 || facingRight == true && playerController.keyDirection.x < 0)
+        //{
+        //    Flip();
+        //}
     }
 
     void LateUpdate()
@@ -68,9 +56,30 @@ public class Player : MonoBehaviour
         SetCameraXRestrictions();
     }
 
+
     void Update()
     {
+        //UpdateInput();
+       // rb2D.MovePosition(rb2D.position + direction * speed * Time.fixedDeltaTime);
+    }
+    //protected virtual void UpdateInput()
+    //{
+    //    if (playerController.IsKeyDown)
+    //    {
+    //        this.direction = playerController.direction;
+    //    }
+    //    else
+    //    {
+    //        this.direction = Vector3.zero;
+    //    }
+    //}
 
+    void Flip()
+    {
+        facingRight = !facingRight;
+        Vector3 Scaler = transform.localScale;
+        Scaler.x *= -1;
+        transform.localScale = Scaler;
     }
 
     private void GetCameraXBoundries()
@@ -83,14 +92,6 @@ public class Player : MonoBehaviour
         Vector3 viewPos = transform.position;
         viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x * -1 + objectWidth, screenBounds.x - objectWidth);
         transform.position = viewPos;
-    }
-
-    void Flip()
-    {
-        facingRight = !facingRight;
-        Vector3 Scaler = transform.localScale;
-        Scaler.x *= -1;
-        transform.localScale = Scaler;
     }
 
 }

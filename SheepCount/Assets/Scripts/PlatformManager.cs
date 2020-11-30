@@ -42,12 +42,13 @@ public class PlatformManager : MonoBehaviour
     {
         platformWidths = new float[objPlatformPooler.Length];
 
+        //Get platform widths
         for (int i = 0; i < objPlatformPooler.Length; i++)
         {
             platformWidths[i] = objPlatformPooler[i].platformPool.GetComponent<BoxCollider2D>().size.y;
         }
 
-        //restrict how high the platform can instantiate at
+        //restrict how far the platform can instantiate at
         minX = transform.position.x;
         maxX = maxXPoint.position.x;
     }

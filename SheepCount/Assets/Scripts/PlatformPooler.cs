@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlatformPooler : MonoBehaviour
 {
     public GameObject platformPool;
-
     public int poolAmount;
     List<GameObject> pooledObjects;
 
@@ -22,7 +21,8 @@ public class PlatformPooler : MonoBehaviour
     }
 
     private void CreateObject()
-    {
+    { 
+        //Deactivted platform
         GameObject plate = (GameObject)Instantiate(platformPool);
         plate.SetActive(false);
         pooledObjects.Add(plate);
@@ -30,7 +30,7 @@ public class PlatformPooler : MonoBehaviour
 
     public GameObject GetPooledObject()
     {
-        //grab inactive instantiated plateform
+        //pulling inactive plateform
         for(int i = 0; i < pooledObjects.Count; i++)
         {
             if(!pooledObjects[i].activeInHierarchy)

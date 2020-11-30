@@ -16,10 +16,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Start()
+    public PlayerController()
     {
 
     }
+
     void Awake()
     {
         AwakeKeyDirection();
@@ -29,23 +30,23 @@ public class PlayerController : MonoBehaviour
     {
         keyDirection = new Vector2();
     }
-    void FixedUpdate()
+
+    // Use this for initialization
+    void Start()
     {
-       // UpdateMovement();
 
     }
 
-    private void Update()
+    // Update is called once per frame
+    protected virtual void Update()
     {
+        UpdateKeyboardInput();
+
     }
 
-    protected virtual void UpdateMovement()
+    protected virtual void UpdateKeyboardInput()
     {
-
-        //Movement
-        //moveInput = Input.GetAxis("Horizontal");
-        //rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
-
+        //direction.x = direction.y = 0;
         keyDirection.x = keyDirection.y = 0;
 
         //Keyboard
@@ -57,10 +58,14 @@ public class PlayerController : MonoBehaviour
         {
             keyDirection.x += -1;
         }
-        if (Input.GetKey("up"))
+
+        if (Input.GetKeyDown("up"))
         {
             keyDirection.y += 1;
+
         }
+
+
 
 
         direction += keyDirection;
