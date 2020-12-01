@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
+    public AudioSource hit;
     public float speed;
     public float bounceBack;
     private float stagger;
@@ -13,7 +14,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        hit = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -29,6 +30,7 @@ public class Enemy : MonoBehaviour
         switch (other.gameObject.tag)
         {
             case "Player":
+                hit.Play();
                 stagger = transform.position.x + Random.Range(-bounceBack, bounceBack);
                 other.transform.position = new Vector3(stagger, transform.position.y, transform.position.z);
                 gameObject.SetActive(false);
