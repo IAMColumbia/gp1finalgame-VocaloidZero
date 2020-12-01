@@ -1,10 +1,20 @@
 Release Notes version 2 Vertical Slice
 
--Camera adjestment
+-Camera adjustment
 -Endless Scroll 
 -Scroll BG
 -Obstacles
 
+-Background now loops and scrolls up.
+-Platform Pool and Platform Destroy's reusable scripts used to object pool and monitor enemies and pickups.
+-On hit, player bounces back some.
+-EnemySpawner attached to main camera so that the spawner is always above the player no matter what.
+
+
 TODO
+-Fix the bounceback on player hit
 -Have starting platform disappear when out of sight
+-Proper art
 -Music
+
+

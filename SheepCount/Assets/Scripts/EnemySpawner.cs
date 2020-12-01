@@ -4,32 +4,22 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    //[SerializeField]
-    //private float xBound;
-    //[SerializeField]
-    //private float[] xPos;
-    //[SerializeField]
-    //private GameObject[] enemies;
-    //[SerializeField]
-    //private Wave wave;
     public PlatformPooler enemyPool;
     public float respawnTime;
     private Vector3 screenBounds;
-    private Player player;
 
     // Start is called before the first frame update
     void Start()
     {
-        //player = FindObjectOfType<Player>();
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         StartCoroutine(Wave());
     }
 
-    public void SpawnEnemy()
+    public void SpawnEnemy(Vector2 startPos)
     {
         //create enemy in the world at random
         GameObject enemy = enemyPool.GetPooledObject();
-        enemy.transform.position = new Vector2(Random.Range(-screenBounds.x, screenBounds.x), screenBounds.y * 2);
+        enemy.transform.position = startPos;
         enemy.SetActive(true);
     }
 
@@ -38,7 +28,8 @@ public class EnemySpawner : MonoBehaviour
         while(true)
         {
             yield return new WaitForSeconds(respawnTime);
-            SpawnEnemy();
+            //spawn at the spawner point but with restrictions and randomness
+            SpawnEnemy(new Vector2(transform.position.x + Random.Range(-screenBounds.x, screenBounds.x), transform.position.y + (screenBounds.y * 2)));
         }
 
     }
