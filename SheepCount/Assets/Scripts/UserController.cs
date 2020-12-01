@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestController : MonoBehaviour
+public class UserController : MonoBehaviour
 {
-    //TODO SoC for playercontroller and then restricted controller for jump addition
-
-    //jump conditions
     [SerializeField] Rigidbody2D rb;
     float jumpCoolDown;
     public float moveInput;
@@ -30,7 +27,7 @@ public class TestController : MonoBehaviour
     {
         moveInput = Input.GetAxis("Horizontal");
 
-        if(Input.GetKeyDown("up"))
+        if (Input.GetKeyDown("up"))
         {
             Jump();
         }
@@ -45,7 +42,7 @@ public class TestController : MonoBehaviour
 
     void Jump()
     {
-        if(onGround || jumpCount < extraJumps)
+        if (onGround || jumpCount < extraJumps)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
             jumpCount++;
@@ -55,17 +52,17 @@ public class TestController : MonoBehaviour
 
     void CheckifOnGround()
     {
-        if(Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer))
+        if (Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer))
         {
             onGround = true;
             jumpCount = 0;
             jumpCoolDown = Time.time + 0.2f;
         }
-        else if(Time.time < jumpCoolDown)
+        else if (Time.time < jumpCoolDown)
         {
             onGround = true;
         }
-        else 
+        else
         { onGround = false; }
     }
 }

@@ -25,6 +25,7 @@ public class PlatformManager : MonoBehaviour
 
     //public Transform maxHeightPoint; //y axis limit
     public Transform maxXPoint;
+    public Transform minXPoint;
     private float minX;
     private float maxX;
     public float maxXChange;
@@ -42,27 +43,19 @@ public class PlatformManager : MonoBehaviour
     {
         platformWidths = new float[objPlatformPooler.Length];
 
-        //Get platform widths
+        //Get platform prefab widths
         for (int i = 0; i < objPlatformPooler.Length; i++)
         {
             platformWidths[i] = objPlatformPooler[i].platformPool.GetComponent<BoxCollider2D>().size.y;
         }
 
         //restrict how far the platform can instantiate at
-        minX = transform.position.x;
+        minX = minXPoint.position.x;
         maxX = maxXPoint.position.x;
     }
 
     private void Update()
     {
-
-        //if(transform.position.y < generationPoint.position.y)
-        //{
-        //    transform.position = new Vector3(transform.position.x,transform.position.y + platformWidth + distanceBetween, transform.position.z);
-
-        //    Instantiate(thePlatform,transform.position, transform.rotation);
-        //}
-
 
         if (transform.position.y < generationPoint.position.y)
         {
@@ -72,14 +65,14 @@ public class PlatformManager : MonoBehaviour
             //heightChange = transform.position.y + Random.Range(maxHeightChange, -maxHeightChange); //x axis range
             xDistanceChange = transform.position.x + Random.Range(-maxXChange, maxXChange); //x axis range
 
-            //x axis distance randomness
+            //x axis distance randomness but never beyond the max points
             if (xDistanceChange > maxX)
             {
-                xDistanceChange = maxX; //+ Random.Range(-2, 10);
+                xDistanceChange = maxX;
             }
             else if (xDistanceChange < minX)
             {
-                xDistanceChange = minX + Random.Range(-2, 5);
+                xDistanceChange = minX; 
             }
 
             //set platform position with distance
@@ -88,6 +81,7 @@ public class PlatformManager : MonoBehaviour
             //Create new platform into list as active
             GameObject newPlatform = objPlatformPooler[platformSelector].GetPooledObject();
 
+            //Retain prefav position and rotation and set to ACTIVE
             newPlatform.transform.position = transform.position;
             newPlatform.transform.rotation = transform.rotation;
             newPlatform.SetActive(true);

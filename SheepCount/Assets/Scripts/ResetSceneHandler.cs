@@ -15,7 +15,7 @@ public class ResetSceneHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //ResetScene();
+
     }
 
     public void ResetScene()

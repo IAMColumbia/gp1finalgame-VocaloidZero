@@ -1,1 +1,10 @@
 Release Notes version 2 Vertical Slice
+
+-Camera adjestment
+-Endless Scroll 
+-Scroll BG
+-Obstacles
+
+TODO
+-Have starting platform disappear when out of sight
+-Music

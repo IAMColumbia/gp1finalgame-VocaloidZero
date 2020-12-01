@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public TestController player;
+    public UserController player;
 
     private Vector3 lastPos;
     private float distanceToMove;
     // Start is called before the first frame update
     void Start()
     {
-        player = FindObjectOfType<TestController>();
+        player = FindObjectOfType<UserController>();
         lastPos = player.transform.position;
     }
 
