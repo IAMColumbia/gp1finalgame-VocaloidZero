@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public enum PlayerState { Dead, Playing }
+    public PlayerState State { get; set; }
+
     public Vector2 direction;
     public float speed;
     private bool facingRight = false;
@@ -16,6 +19,7 @@ public class Player : MonoBehaviour
     //referances
     UserController playerController;
     public Rigidbody2D rb2D;
+    private ResetSceneHandler endGame;
 
     void Awake()
     {
@@ -23,6 +27,8 @@ public class Player : MonoBehaviour
     }
     void Start()
     {
+        endGame = FindObjectOfType<ResetSceneHandler>();
+
         playerController = GetComponent<UserController>();
         if (playerController == null)
         {
@@ -30,11 +36,28 @@ public class Player : MonoBehaviour
         }
 
         GetCameraXBoundries();
+
+        this.State = PlayerState.Playing;
     }
 
     private void FixedUpdate()
     {
+        switch (this.State)
+        {
+            case PlayerState.Dead:
+                Debug.Log("State = Dead");
+                endGame.ResetScene();
+                break;
+            case PlayerState.Playing:
+                PlayGame();
+               //Debug.Log("State = Playing");
+                break;
+        }
 
+    }
+
+    private void PlayGame()
+    {
         rb2D.velocity = new Vector2(playerController.moveInput * speed, rb2D.velocity.y);
 
         if (facingRight == false && playerController.moveInput > 0 || facingRight == true && playerController.moveInput < 0)
@@ -71,6 +94,21 @@ public class Player : MonoBehaviour
         Vector3 viewPos = transform.position;
         viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x * -1 + objectWidth, screenBounds.x - objectWidth);
         transform.position = viewPos;
+    }
+
+    //Reset the scene on fall
+    void OnTriggerEnter2D(Collider2D coll)
+    {
+
+        switch (coll.gameObject.tag)
+        {
+            case "Finish":
+                this.State = PlayerState.Dead;
+                Debug.Log("Reset Scene");
+                break;
+
+        }
+
     }
 
 }

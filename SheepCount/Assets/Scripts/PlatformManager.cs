@@ -15,14 +15,6 @@ public class PlatformManager : MonoBehaviour
     private int platformSelector;
     private float[] platformWidths;
 
-    //Restricting platforms so that they are not out of reach for the player
-    //public Transform maxHeightPoint; //y axis limit
-    ////public Transform maxXPoint;
-    //private float minHeight; 
-    //private float maxHeight;
-    //public float maxHeightChange;
-    //private float heightChange;
-
     //public Transform maxHeightPoint; //y axis limit
     public Transform maxXPoint;
     public Transform minXPoint;
@@ -30,6 +22,11 @@ public class PlatformManager : MonoBehaviour
     private float maxX;
     public float maxXChange;
     private float xDistanceChange;
+
+    //referance to pickups
+    private SheepGenerator sheepGenerator;
+    public float randomSheepRange;
+
 
 
 
@@ -52,6 +49,8 @@ public class PlatformManager : MonoBehaviour
         //restrict how far the platform can instantiate at
         minX = minXPoint.position.x;
         maxX = maxXPoint.position.x;
+
+        sheepGenerator = FindObjectOfType<SheepGenerator>();
     }
 
     private void Update()
@@ -86,7 +85,13 @@ public class PlatformManager : MonoBehaviour
             newPlatform.transform.rotation = transform.rotation;
             newPlatform.SetActive(true);
 
-            //
+            //Randomly spawn coins depending on range
+            if(Random.Range(0f,100f) < randomSheepRange)
+            {
+                //create pickups on platform
+                sheepGenerator.SpawnSheep(new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z));
+            }
+
             transform.position = new Vector3(transform.position.x, transform.position.y + (platformWidths[platformSelector] / 2), transform.position.z);
 
         }

@@ -27,19 +27,6 @@ public class ResetSceneHandler : MonoBehaviour
 
     }
 
-    //Reset the scene for now with block touch
-    void OnTriggerEnter2D(Collider2D coll)
-    {
 
-        switch (coll.gameObject.tag)
-        {
-            case "Player":
-                this.ResetScene();
-                Debug.Log("Reset Scene");
-                break;
-
-        }
-
-    }
 
 }

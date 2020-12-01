@@ -6,10 +6,10 @@ public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance { get; private set; }
 
+    //TO DO: Add highscore? Adjust variables.
     public Text ScoreText;
 
     public static int Score;
-    //public bool timerActive;
 
 
 
@@ -47,7 +47,10 @@ public class ScoreManager : MonoBehaviour
        // EndConditions();
 
     }
-
+     public void AddScore(int pointsToAdd)
+    {
+        Score += pointsToAdd;
+    }
 
 
 }
