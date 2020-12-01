@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class SheepPickup : MonoBehaviour
 {
-    private ScoreManager sm;
-
+    private ScoreManager sm; 
     public int assignScore;
 
 

@@ -7,7 +7,6 @@ public class Player : MonoBehaviour
     public enum PlayerState { Dead, Playing }
     public PlayerState State { get; set; }
 
-    public Vector2 direction;
     public float speed;
     private bool facingRight = false;
 
