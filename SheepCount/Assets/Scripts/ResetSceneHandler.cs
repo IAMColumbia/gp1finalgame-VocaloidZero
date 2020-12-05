@@ -6,9 +6,11 @@ using UnityEngine.SceneManagement;
 public class ResetSceneHandler : MonoBehaviour
 {
     private Scene restartGame;
+    public AudioSource endNoise;
 
     void Start()
     {
+        endNoise = GetComponent<AudioSource>();
         restartGame = SceneManager.GetActiveScene();
     }
 
@@ -22,6 +24,7 @@ public class ResetSceneHandler : MonoBehaviour
     {
         //Want the scene to reset to the bottom of the screen if the player has fallen off the bottom screen.
 
+        endNoise.Play();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
 

@@ -13,4 +13,5 @@ public class SheepGenerator : MonoBehaviour
         sheep.transform.position = startPos;
         sheep.SetActive(true);
     }
+
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class UserController : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rb;
+    public AudioSource jumpNoise;
     float jumpCoolDown;
     public float moveInput;
     public float jumpPower;
@@ -20,6 +21,7 @@ public class UserController : MonoBehaviour
 
     private void Start()
     {
+        jumpNoise = GetComponent<AudioSource>();
         extraJumps = 2;
     }
 
@@ -29,6 +31,7 @@ public class UserController : MonoBehaviour
 
         if (Input.GetKeyDown("up"))
         {
+            jumpNoise.Play();
             Jump();
         }
         CheckifOnGround();

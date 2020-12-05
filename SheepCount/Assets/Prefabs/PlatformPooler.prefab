@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fedcac0229f65f40bc631b058fa2187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platformPool: {fileID: 220038938812987120, guid: 7cf5511bb7b15e44198c245615bf91ea,
+  platformPool: {fileID: 1547843259170355263, guid: b8be10e10a7968743b18cc8009a6e44e,
     type: 3}
   poolAmount: 5
 --- !u!1 &5813190846150416719
@@ -121,6 +121,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fedcac0229f65f40bc631b058fa2187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platformPool: {fileID: 220038938812987120, guid: 7cf5511bb7b15e44198c245615bf91ea,
+  platformPool: {fileID: 1457809036811297511, guid: 84c8740a3d9b3094b8c24cdc4cb60aa1,
     type: 3}
   poolAmount: 5

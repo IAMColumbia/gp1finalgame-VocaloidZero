@@ -470,6 +470,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3050241344346874101, guid: a06c030f796d2c045bf252d36eaabd0a,
+        type: 3}
+      propertyPath: platformPool
+      value: 
+      objectReference: {fileID: 1902916564625642022, guid: f704924bb9ce92f43a41296594e27769,
+        type: 3}
     - target: {fileID: 3050241344827829574, guid: a06c030f796d2c045bf252d36eaabd0a,
         type: 3}
       propertyPath: m_Name
@@ -535,6 +541,11 @@ PrefabInstance:
       propertyPath: levels.Array.data[0]
       value: 
       objectReference: {fileID: 1287964176}
+    - target: {fileID: 3050241344827829691, guid: a06c030f796d2c045bf252d36eaabd0a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a06c030f796d2c045bf252d36eaabd0a, type: 3}
 --- !u!1001 &4494864092102264212
@@ -791,6 +802,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813190845939809943, guid: 6f002722bd6f25a49900ecc79dbd227f,
+        type: 3}
+      propertyPath: poolAmount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813190846150416716, guid: 6f002722bd6f25a49900ecc79dbd227f,
+        type: 3}
+      propertyPath: poolAmount
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f002722bd6f25a49900ecc79dbd227f, type: 3}

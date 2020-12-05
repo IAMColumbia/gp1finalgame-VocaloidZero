@@ -11,10 +11,14 @@ public class Enemy : MonoBehaviour
     private float stagger;
 
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         hit = GetComponent<AudioSource>();
+    }
+
+    void Start()
+    {
+
     }
 
     // Update is called once per frame
@@ -25,20 +29,38 @@ public class Enemy : MonoBehaviour
     }
 
     //collide conditions
-    private void OnTriggerEnter2D(Collider2D other)
+    //private void OnTriggerEnter2D(Collider2D other)
+    //{
+    //    switch (other.gameObject.tag)
+    //    {
+    //        case "Player":
+    //            hit.Play();
+    //            stagger = transform.position.x + Random.Range(-bounceBack, bounceBack);
+    //            other.transform.position = new Vector3(stagger, transform.position.y, transform.position.z);
+    //            gameObject.SetActive(false);
+    //            break;
+
+    //        //case "Floor":
+    //        //    gameObject.SetActive(false);
+    //        //    break;
+    //    }
+    //}
+
+    void OnCollisionEnter2D(Collision2D coll)
     {
-        switch (other.gameObject.tag)
+        switch (coll.gameObject.tag)
         {
             case "Player":
                 hit.Play();
                 stagger = transform.position.x + Random.Range(-bounceBack, bounceBack);
-                other.transform.position = new Vector3(stagger, transform.position.y, transform.position.z);
+                coll.transform.position = new Vector3(stagger, transform.position.y, transform.position.z);
                 gameObject.SetActive(false);
                 break;
 
-            //case "Floor":
-            //    gameObject.SetActive(false);
-            //    break;
+                //case "Floor":
+                //    gameObject.SetActive(false);
+                //    break;
         }
     }
+
 }
