@@ -1,1 +1,8 @@
 Release Notes version 3 Final
+
+-Music added.
+-All necessary art added.
+-Starting floor disappears off screen.
+-Jump and ground check variables moved to Player script. Player should be able to detect if it is on the ground. Being on the ground determines how the player is allowed to jump.
+
+-Fix bounce back.

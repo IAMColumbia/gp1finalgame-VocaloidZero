@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de15383d49caff84caf472292f639a79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hit: {fileID: 0}
+  hitNoise: {fileID: 8300000, guid: aa53262d6be83cd478523818de008c24, type: 3}
   speed: 3
   bounceBack: 1
 --- !u!82 &311909039935564679

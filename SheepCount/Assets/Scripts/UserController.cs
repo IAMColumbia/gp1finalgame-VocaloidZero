@@ -4,25 +4,17 @@ using UnityEngine;
 
 public class UserController : MonoBehaviour
 {
-    [SerializeField] Rigidbody2D rb;
-    public AudioSource jumpNoise;
-    float jumpCoolDown;
-    public float moveInput;
-    public float jumpPower;
-    public int extraJumps;
-    public float speed;
-    public int jumpCount;
+    //references
+    public Player player;
 
-    //Ground check for jump
-    [SerializeField] LayerMask groundLayer;
-    [SerializeField] Transform groundCheck;
-    public float groundRadius;
-    public bool onGround;
+
+    public float moveInput;
+
 
     private void Start()
     {
-        jumpNoise = GetComponent<AudioSource>();
-        extraJumps = 2;
+        //jumpNoise = GetComponent<AudioSource>();
+        player = GetComponent<Player>();
     }
 
     private void Update()
@@ -31,41 +23,11 @@ public class UserController : MonoBehaviour
 
         if (Input.GetKeyDown("up"))
         {
-            jumpNoise.Play();
-            Jump();
+            player.Jump();
         }
-        CheckifOnGround();
+        player.CheckifOnGround();
 
     }
 
-    private void FixedUpdate()
-    {
-
-    }
-
-    void Jump()
-    {
-        if (onGround || jumpCount < extraJumps)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpPower);
-            jumpCount++;
-        }
-
-    }
-
-    void CheckifOnGround()
-    {
-        if (Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer))
-        {
-            onGround = true;
-            jumpCount = 0;
-            jumpCoolDown = Time.time + 0.2f;
-        }
-        else if (Time.time < jumpCoolDown)
-        {
-            onGround = true;
-        }
-        else
-        { onGround = false; }
-    }
+  
 }

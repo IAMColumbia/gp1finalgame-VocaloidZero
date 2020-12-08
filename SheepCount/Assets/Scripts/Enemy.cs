@@ -5,7 +5,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
-    public AudioSource hit;
+    [SerializeField]
+    private AudioClip hitNoise;
     public float speed;
     public float bounceBack;
     private float stagger;
@@ -13,7 +14,7 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
-        hit = GetComponent<AudioSource>();
+        //hit = GetComponent<AudioSource>();
     }
 
     void Start()
@@ -51,7 +52,7 @@ public class Enemy : MonoBehaviour
         switch (coll.gameObject.tag)
         {
             case "Player":
-                hit.Play();
+                AudioSource.PlayClipAtPoint(hitNoise, transform.position);
                 stagger = transform.position.x + Random.Range(-bounceBack, bounceBack);
                 coll.transform.position = new Vector3(stagger, transform.position.y, transform.position.z);
                 gameObject.SetActive(false);

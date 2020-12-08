@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5533850802890435722}
   - component: {fileID: 5533850802890435723}
-  - component: {fileID: 5533850802890435720}
+  - component: {fileID: 4114177329551125075}
   - component: {fileID: 5533850802890435721}
   - component: {fileID: 5533850802890435726}
   - component: {fileID: 5533850802890435727}
@@ -87,7 +87,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &5533850802890435720
+--- !u!60 &4114177329551125075
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -181,9 +181,9 @@ PolygonCollider2D:
       - {x: -2.105, y: 0.005}
       - {x: -2.145, y: -0.105}
       - {x: -2.165, y: -0.16499999}
-      - {x: -2.345, y: -0.16499999}
-      - {x: -2.445, y: -0.225}
-      - {x: -2.445, y: -0.285}
+      - {x: -2.2029977, y: -0.21961637}
+      - {x: -2.1828418, y: -0.25776985}
+      - {x: -2.2046883, y: -0.23038387}
       - {x: -2.185, y: -0.24499999}
       - {x: -2.085, y: -0.42499998}
       - {x: -2.195, y: -0.565}
@@ -240,7 +240,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  jumpPower: 14
+  extraJumps: 0
+  jumpCount: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  groundCheck: {fileID: 5533850802995897007}
+  groundRadius: 0.5
+  onGround: 0
   MainCamera: {fileID: 0}
+  jumpNoise: {fileID: 0}
   rb2D: {fileID: 0}
 --- !u!114 &5533850802890435727
 MonoBehaviour:
@@ -254,19 +264,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4653ffa204349b542919b7841e8eba1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 5533850802890435721}
+  player: {fileID: 0}
   jumpNoise: {fileID: 0}
   moveInput: 0
-  jumpPower: 14
-  extraJumps: 2
-  speed: 0
-  jumpCount: 0
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  groundCheck: {fileID: 5533850802995897007}
-  groundRadius: 0.5
-  onGround: 0
 --- !u!82 &5533850802890435724
 AudioSource:
   m_ObjectHideFlags: 0
@@ -278,9 +278,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4e249dbbfbf97fc48b9627b9f50d4001, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.707
+  m_Pitch: -0.86
   Loop: 0
   Mute: 0
   Spatialize: 0

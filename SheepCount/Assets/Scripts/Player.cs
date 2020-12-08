@@ -7,16 +7,28 @@ public class Player : MonoBehaviour
     public enum PlayerState { Dead, Playing }
     public PlayerState State { get; set; }
 
+    //Jumpin
     public float speed;
+    private float jumpCoolDown; //time until next jump can be performed
+    public float jumpPower; //how high the player jumps
+    public int extraJumps; // how many jumps the player can do
+    public int jumpCount; //jump tracker
     private bool facingRight = false;
 
-    //Restricting x boundries
+    //Ground Check
+    [SerializeField] LayerMask groundLayer;
+    [SerializeField] Transform groundCheck;
+    public float groundRadius;
+    public bool onGround;
+
+    //Restricting x boundries for the player
     public Camera MainCamera;
     private Vector2 screenBounds;
     private float objectWidth;
 
     //referances
     UserController playerController;
+    public AudioSource jumpNoise;
     public Rigidbody2D rb2D;
     private ResetSceneHandler endGame;
 
@@ -27,6 +39,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         endGame = FindObjectOfType<ResetSceneHandler>();
+        jumpNoise = GetComponent<AudioSource>();
 
         playerController = GetComponent<UserController>();
         if (playerController == null)
@@ -37,6 +50,8 @@ public class Player : MonoBehaviour
         GetCameraXBoundries();
 
         this.State = PlayerState.Playing;
+
+        extraJumps = 2;
     }
 
     private void FixedUpdate()
@@ -105,9 +120,39 @@ public class Player : MonoBehaviour
                 this.State = PlayerState.Dead;
                 Debug.Log("Reset Scene");
                 break;
+            case "PickUP":
+                
+                break;
 
         }
 
+    }
+
+    public void Jump()
+    {
+        if (onGround || jumpCount < extraJumps)
+        {
+            rb2D.velocity = new Vector2(rb2D.velocity.x, jumpPower);
+            jumpCount++;
+            jumpNoise.Play();
+        }
+
+    }
+
+    public void CheckifOnGround()
+    {
+        if (Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer))
+        {
+            onGround = true;
+            jumpCount = 0;
+            jumpCoolDown = Time.time + 0.2f;
+        }
+        else if (Time.time < jumpCoolDown)
+        {
+            onGround = true;
+        }
+        else
+        { onGround = false; }
     }
 
 }
