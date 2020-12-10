@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
 
     //referances
     UserController playerController;
-    public AudioSource jumpNoise;
+    public AudioClip jumpNoise;
     public Rigidbody2D rb2D;
     private ResetSceneHandler endGame;
 
@@ -39,7 +39,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         endGame = FindObjectOfType<ResetSceneHandler>();
-        jumpNoise = GetComponent<AudioSource>();
 
         playerController = GetComponent<UserController>();
         if (playerController == null)
@@ -132,9 +131,9 @@ public class Player : MonoBehaviour
     {
         if (onGround || jumpCount < extraJumps)
         {
+            AudioSource.PlayClipAtPoint(jumpNoise, transform.position);
             rb2D.velocity = new Vector2(rb2D.velocity.x, jumpPower);
             jumpCount++;
-            jumpNoise.Play();
         }
 
     }
