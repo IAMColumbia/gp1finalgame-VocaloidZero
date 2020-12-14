@@ -1,0 +1,9 @@
+Game Name: Sheep Count
+
+Game Description Short: Listen to calming music while jumping from cloud to cloud. Sky is the limit here and there is a lot of it in this endlessly scrolling platformer. 
+
+Game Description Long: Use your cloudy cat friend to jump between clouds in the night sky. This doesn't demand much hectic urgency, it is more something to sit back and mindlessly play while not spiking up the adrenaline one might get from playing games. The endless scroller allows the player to continue their play for as long as necessary it takes to unwind or possibly hit that sleepy point.
+
+Credits: Art by me. 
+
+Genre: Endless platformer.

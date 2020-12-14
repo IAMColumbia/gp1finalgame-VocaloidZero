@@ -1,0 +1,20 @@
+- The game depends on platforms generating, so what I thought to do was create objectpools to deal with it. It allowed me to be able to spawn a certain amount but not have to deal with the instantiate and destroy process that would eat up time. 
+
+- I feel as thought I did alright with the classes and components mainly because I tried to keep high seperation on concern. Doing that made it easier to set components to more specific jobs like playing music or dropping enemies. If I could do it over, I would have liked to fix the UserController more. I feel like I could have made it nicer. It was giving me some issues regarding jumping if I didn't do it the way I have it currently.
+
+- Because of the seperation of concern I tried to impliment, I would like to say the code is at least 80% reuseable so long as the game objects they ask for are hooked up properly... However, since most scripts do depend on what is in the scene to properly maintain itself, probably like 60% is specific to the game. 
+
+Some scripts such as PlatformManager and PlatformPooler would need to be paired up so that the pooling system can be properly managed. 
+
+I also think all of it would only really be applicable to Unity. 
+
+- With how the pooling system works, adding or removing clouds is as simple as changing the number on their poolers. The same goes for the dropping cloud enemies and rewards the player can pick up.
+
+- Overall, I did finish what I set out to do. I played with the looping background and endless platformer. I got the basic functions for the game in there like score, movement, jump, and platform spawning. I got smaller details like sound and art in there. 
+
+I am well aware of what my capabilities are when it comes to coding so the scope I set for myself here matched what I expected to achieve and flounder on. In this instance, I believe I took that into consideration and gave myself a scope that was reachable and not overly ambitious while still keeping in line with what I was interested in doing.
+
+Mostly I would like to add more polish that would make the game "feel good." Such as particle effects when picking something up, animation, flashing when a player is hit... Things like that where the feedback is fun to look at.
+
+As far as redoing the proposal goes, I can't think of what I would change. Again, I thought I managed to keep within my ability's range for the time we were given. 
+

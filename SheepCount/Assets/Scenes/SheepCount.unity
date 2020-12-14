@@ -557,6 +557,16 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3050241344827829691, guid: a06c030f796d2c045bf252d36eaabd0a,
+        type: 3}
+      propertyPath: scrollSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317269884518315619, guid: a06c030f796d2c045bf252d36eaabd0a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a06c030f796d2c045bf252d36eaabd0a, type: 3}
 --- !u!1001 &4494864092102264212
@@ -750,11 +760,6 @@ PrefabInstance:
       propertyPath: poolAmount
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 5813190846150416716, guid: 6f002722bd6f25a49900ecc79dbd227f,
-        type: 3}
-      propertyPath: poolAmount
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f002722bd6f25a49900ecc79dbd227f, type: 3}
 --- !u!1001 &6544474798727868609
@@ -839,6 +844,11 @@ PrefabInstance:
       propertyPath: objPlatformPooler.Array.data[1]
       value: 
       objectReference: {fileID: 1712830225}
+    - target: {fileID: 6544474798742419835, guid: 3b9c8e7e785e81344bede990fb698cc0,
+        type: 3}
+      propertyPath: distanceMin
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b9c8e7e785e81344bede990fb698cc0, type: 3}
 --- !u!1001 &6900180327205013217

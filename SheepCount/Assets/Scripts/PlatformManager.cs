@@ -61,7 +61,7 @@ public class PlatformManager : MonoBehaviour
 
             distanceBetweenY = Random.Range(distanceMin, distanceMax); //distance between platforms on the y axis
             platformSelector = Random.Range(0, objPlatformPooler.Length); //selecting between platform prefabs
-            //heightChange = transform.position.y + Random.Range(maxHeightChange, -maxHeightChange); //x axis range
+           // heightChange = transform.position.y + Random.Range(maxHeightChange, -maxHeightChange); //y axis range
             xDistanceChange = transform.position.x + Random.Range(-maxXChange, maxXChange); //x axis range
 
             //x axis distance randomness but never beyond the max points

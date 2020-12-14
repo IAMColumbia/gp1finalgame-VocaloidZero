@@ -8,8 +8,8 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private AudioClip hitNoise;
     public float speed;
-    public float bounceBack;
-    private float stagger;
+    public float bounceBackPower;
+    private Vector2 stagger;
 
 
     private void Awake()
@@ -52,15 +52,11 @@ public class Enemy : MonoBehaviour
         switch (coll.gameObject.tag)
         {
             case "Player":
-                AudioSource.PlayClipAtPoint(hitNoise, transform.position);
-                stagger = transform.position.x + Random.Range(-bounceBack, bounceBack);
-                coll.transform.position = new Vector3(stagger, transform.position.y, transform.position.z);
+                AudioSource.PlayClipAtPoint(hitNoise, transform.position); //play hit noise
+                stagger = transform.position - coll.transform.position; // bouncing player back on hit
+                coll.transform.position = new Vector2(transform.position.x + stagger.x + Random.Range(-bounceBackPower, bounceBackPower), transform.position.y - stagger.y);
                 gameObject.SetActive(false);
                 break;
-
-                //case "Floor":
-                //    gameObject.SetActive(false);
-                //    break;
         }
     }
 

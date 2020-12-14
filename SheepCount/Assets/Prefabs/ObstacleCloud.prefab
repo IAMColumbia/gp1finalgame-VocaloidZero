@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 311909039935564679}
   m_Layer: 0
   m_Name: ObstacleCloud
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitNoise: {fileID: 8300000, guid: aa53262d6be83cd478523818de008c24, type: 3}
   speed: 3
-  bounceBack: 1
+  bounceBackPower: 1.5
 --- !u!82 &311909039935564679
 AudioSource:
   m_ObjectHideFlags: 0

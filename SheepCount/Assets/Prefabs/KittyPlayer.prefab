@@ -250,7 +250,7 @@ MonoBehaviour:
   groundRadius: 0.5
   onGround: 0
   MainCamera: {fileID: 0}
-  jumpNoise: {fileID: 0}
+  jumpNoise: {fileID: 8300000, guid: 4e249dbbfbf97fc48b9627b9f50d4001, type: 3}
   rb2D: {fileID: 0}
 --- !u!114 &5533850802890435727
 MonoBehaviour:
@@ -265,7 +265,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  jumpNoise: {fileID: 0}
   moveInput: 0
 --- !u!82 &5533850802890435724
 AudioSource:

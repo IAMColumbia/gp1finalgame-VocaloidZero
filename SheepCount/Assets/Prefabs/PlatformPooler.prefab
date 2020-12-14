@@ -123,4 +123,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platformPool: {fileID: 1457809036811297511, guid: 84c8740a3d9b3094b8c24cdc4cb60aa1,
     type: 3}
-  poolAmount: 5
+  poolAmount: 3

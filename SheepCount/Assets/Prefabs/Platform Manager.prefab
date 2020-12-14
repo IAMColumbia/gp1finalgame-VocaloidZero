@@ -142,7 +142,7 @@ MonoBehaviour:
   - {fileID: 0}
   distanceBetweenY: 0
   distanceMin: 1
-  distanceMax: 2
+  distanceMax: 4
   maxXPoint: {fileID: 6544474798338391853}
   minXPoint: {fileID: 6544474797942407658}
   maxXChange: 7

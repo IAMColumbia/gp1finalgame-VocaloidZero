@@ -1,0 +1,50 @@
+Release Notes version 1 POC
+
+-Demos the main jump on randomly generated platforms mechanic.
+
+-Spawn platforms with some randomness.
+-Deactiveate platforms offscreen.
+-Object pooling for instatiated platforms.
+-Camera following.
+-Jump and move.
+-Score track not implimented.
+-Sheep collectables not implimented.
+
+-Object pooling allows platforms to be reusable. Also allows generation and keeping track of of different sized platforms.
+
+-TestController controls movement and jump. Spreading movement directions over 4 if() statements and an additional script was making the jump snap up and jarring. 
+
+-Character stays on screen in the X axis. Y axis bounds have been left open so that 1) The player can progress up and 2) Fall out of screen when knocked off a platform.
+
+-Camera follows player but will adjust how it does so in vertical slice. This PoC camera build is to show platforms benethe the player deactivate once they pass a certain point. There is no End state yet, so the player will be stranded until game is reset.
+
+-No reset on falling off yet, but block to the left hand of the screen will rest the game. 
+
+
+Release Notes version 2 Vertical Slice
+
+-Camera adjustment
+-Endless Scroll 
+-Scroll BG
+-Obstacles
+
+-Background now loops and scrolls up.
+-Platform Pool and Platform Destroy's reusable scripts used to object pool and monitor enemies and pickups.
+-On hit, player bounces back some.
+-EnemySpawner attached to main camera so that the spawner is always above the player no matter what.
+
+Release Notes version 3 Final
+
+-Music added.
+-All necessary art added.
+
+-Starting floor disappears off screen.
+-Jump and ground check variables moved to Player script. Player should be able to detect if it is on the ground. Being on the ground determines how the player is allowed to jump.
+
+-Sound effects added to jump, collect, and being hit.
+
+-Increased distance between platforms on the y-axis since jumps would be too tight if platforms were stacking and made it hard to jump to.
+
+-The knock back when a cloud hits a player is fixed so that it won't send the player up on the yaxis. It should also knock the player in the opposite direction than the way they are facing. Just adds another layer of caution to look out for and possibly be stratigic with it.
+
+-Player can now jump through the bottom of the platform instead of banging their head and getting nowhere. Making the playform a oneway collision makes for a smoother gameplay so that they don't happen to get stuck under something or struggle too much with stacked jumps.
