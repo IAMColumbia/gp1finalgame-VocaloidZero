@@ -196,7 +196,7 @@ MonoBehaviour:
   levels:
   - {fileID: 0}
   choke: 0
-  scrollSpeed: 1.5
+  scrollSpeed: 2.5
 --- !u!82 &5317269884518315619
 AudioSource:
   m_ObjectHideFlags: 0

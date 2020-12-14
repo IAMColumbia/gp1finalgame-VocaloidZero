@@ -1,1 +1,15 @@
 Asset Log
+- Art includes:
+Background
+Starting floor
+Cloud types x2
+Obstacle cloud
+Player
+Sheep
+
+-Audio
+Collect
+Jump
+Death
+Hit
+BG music

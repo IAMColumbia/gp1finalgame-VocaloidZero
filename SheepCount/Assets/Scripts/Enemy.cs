@@ -29,23 +29,6 @@ public class Enemy : MonoBehaviour
         transform.position += Vector3.down * speed * Time.fixedDeltaTime;
     }
 
-    //collide conditions
-    //private void OnTriggerEnter2D(Collider2D other)
-    //{
-    //    switch (other.gameObject.tag)
-    //    {
-    //        case "Player":
-    //            hit.Play();
-    //            stagger = transform.position.x + Random.Range(-bounceBack, bounceBack);
-    //            other.transform.position = new Vector3(stagger, transform.position.y, transform.position.z);
-    //            gameObject.SetActive(false);
-    //            break;
-
-    //        //case "Floor":
-    //        //    gameObject.SetActive(false);
-    //        //    break;
-    //    }
-    //}
 
     void OnCollisionEnter2D(Collision2D coll)
     {

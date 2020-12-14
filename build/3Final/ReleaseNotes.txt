@@ -2,7 +2,7 @@ Release Notes version 3 Final
 
 -Music added.
 -All necessary art added.
--
+
 
 -Starting floor disappears off screen.
 -Jump and ground check variables moved to Player script. Player should be able to detect if it is on the ground. Being on the ground determines how the player is allowed to jump.
@@ -14,3 +14,5 @@ Release Notes version 3 Final
 -The knock back when a cloud hits a player is fixed so that it won't send the player up on the yaxis. It should also knock the player in the opposite direction than the way they are facing. Just adds another layer of caution to look out for and possibly be stratigic with it.
 
 -Player can now jump through the bottom of the platform instead of banging their head and getting nowhere. Making the playform a oneway collision makes for a smoother gameplay so that they don't happen to get stuck under something or struggle too much with stacked jumps.
+
+-Added a Resources scene just to compile all the assets and prefabs into one area for easy pickings.

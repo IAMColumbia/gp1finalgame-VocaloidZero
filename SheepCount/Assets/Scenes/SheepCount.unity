@@ -403,6 +403,11 @@ PrefabInstance:
       propertyPath: ScoreText
       value: 
       objectReference: {fileID: 1224475916}
+    - target: {fileID: 390779016936390233, guid: 5cc8306478b191e4785690e6b9ee0931,
+        type: 3}
+      propertyPath: HSText
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cc8306478b191e4785690e6b9ee0931, type: 3}
 --- !u!1001 &1197773500383487898
@@ -452,21 +457,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 1197773501386137992, guid: 792a17755b7d7e1408a1f1f1779bb809,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1197773501386137992, guid: 792a17755b7d7e1408a1f1f1779bb809,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1197773501386137992, guid: 792a17755b7d7e1408a1f1f1779bb809,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1197773501386137994, guid: 792a17755b7d7e1408a1f1f1779bb809,
         type: 3}
       propertyPath: m_Name
@@ -500,7 +490,7 @@ PrefabInstance:
     - target: {fileID: 3050241344827829690, guid: a06c030f796d2c045bf252d36eaabd0a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.45
       objectReference: {fileID: 0}
     - target: {fileID: 3050241344827829690, guid: a06c030f796d2c045bf252d36eaabd0a,
         type: 3}
@@ -555,12 +545,7 @@ PrefabInstance:
     - target: {fileID: 3050241344827829691, guid: a06c030f796d2c045bf252d36eaabd0a,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3050241344827829691, guid: a06c030f796d2c045bf252d36eaabd0a,
-        type: 3}
-      propertyPath: scrollSpeed
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5317269884518315619, guid: a06c030f796d2c045bf252d36eaabd0a,
         type: 3}
@@ -685,6 +670,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494864093313106072, guid: 8c429d201eab98c4898478490cf01d47,
+        type: 3}
+      propertyPath: m_FontData.m_RichText
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494864093313106072, guid: 8c429d201eab98c4898478490cf01d47,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 51
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c429d201eab98c4898478490cf01d47, type: 3}
@@ -871,7 +866,7 @@ PrefabInstance:
     - target: {fileID: 6900180325875000637, guid: 0389c12d134191d48a2cf6bab649e66b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.85
+      value: -3.92
       objectReference: {fileID: 0}
     - target: {fileID: 6900180325875000637, guid: 0389c12d134191d48a2cf6bab649e66b,
         type: 3}
@@ -902,21 +897,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6900180325875000637, guid: 0389c12d134191d48a2cf6bab649e66b,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6900180325875000637, guid: 0389c12d134191d48a2cf6bab649e66b,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6900180325875000637, guid: 0389c12d134191d48a2cf6bab649e66b,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0389c12d134191d48a2cf6bab649e66b, type: 3}
